@@ -1,0 +1,7 @@
+{
+  "name": "RevolV",
+  "description": "RevolV is an advanced Funding Intelligence Engine that runs deep credit diagnostics, scores funding readiness, and auto-generates legal dispute strategies.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
