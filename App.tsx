@@ -59,7 +59,6 @@ const App: React.FC = () => {
               ) : (
                 <Route path="/dashboard" element={<Navigate to="/" />} />
               )}
-
               <Route path="*" element={<Navigate to="/" />} />
             </>
           )}

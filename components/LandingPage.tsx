@@ -1,14 +1,18 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   onEnterApp: () => void;
 }
 
-const LandingPage: React.FC<Props> = ({ onEnterApp }) => {
+const LandingPage: React.FC<Props> = () => {
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const navigate = useNavigate();
+
 
   const testimonials = [
     {
@@ -59,6 +63,9 @@ const LandingPage: React.FC<Props> = ({ onEnterApp }) => {
     window.location.href = "/login";
   }
 
+  const onEnterApp = () => {
+    navigate('/dashboard');
+  }
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0b0c15]">
@@ -101,10 +108,10 @@ const LandingPage: React.FC<Props> = ({ onEnterApp }) => {
         {
           user ? (
             <div className="flex items-center gap-5">
-              <button onClick={onEnterApp} className="hidden border-2 border-slate-700 px-4 py-2 rounded md:block text-sm font-bold text-slate-300 hover:text-white transition-colors">
+              <button onClick={onEnterApp} className="hidden bg-color-primary  px-4 py-2 rounded md:block text-sm font-bold text-gray-100 hover:text-white transition-colors">
                 Dashboard
               </button>
-              <button onClick={handleLogout} className="border-2 border-red-700 px-4 py-2 rounded md:block text-sm font-bold text-red-500 hover:text-white transition-colors">
+              <button onClick={handleLogout} className=" bg-red-700 px-4 py-2 rounded md:block text-sm font-bold text-white hover:text-white transition-colors">
                 Logout
               </button>
             </div>
