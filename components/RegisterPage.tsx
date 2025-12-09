@@ -27,7 +27,7 @@ export default function RegisterPage() {
         <div className="min-h-screen bg-grid-pattern flex items-center justify-center px-4">
             <div className="w-full text-gray-600 max-w-lg bg-white shadow-lg rounded-xl p-6">
 
-                <h1 className="text-3xl font-bold text-center text-blue-800 mb-10 font-sans">Register</h1>
+                <h1 className="text-3xl font-bold text-center color-primary mb-10 font-sans">Register</h1>
 
                 {/* Email */}
                 <label className=" mb-2 block font-medium text-black">Name</label>
@@ -77,14 +77,14 @@ export default function RegisterPage() {
                 {/* Login Button */}
                 <button
                     onClick={handleLogin}
-                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                    className="w-full bg-color-primary text-white py-2 rounded hover:bg-blue-700 transition">
                     Login Now
                 </button>
 
                 {/* Register Link */}
                 <p className="text-center text-gray-600 mt-4">
                     Already have an account?{" "}
-                    <a href="/" className="text-blue-600 font-semibold hover:underline">
+                    <a href="/" className="color-primary font-semibold hover:underline">
                         Please Login
                     </a>
                 </p>

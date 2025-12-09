@@ -20,7 +20,7 @@ export default function ForgotPage() {
         <div className="min-h-screen bg-grid-pattern flex items-center justify-center  px-4">
             <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6">
 
-                <h1 className="text-2xl font-bold text-center mb-6 text-blue-700">
+                <h1 className="text-2xl font-bold text-center mb-6 color-primary">
                     Forgot Password
                 </h1>
 
@@ -37,7 +37,7 @@ export default function ForgotPage() {
                 {/* Send Reset Button */}
                 <button
                     onClick={handleReset}
-                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                    className="w-full bg-color-primary text-white py-2 rounded hover:bg-blue-700 transition"
                 >
                     Send Reset Link
                 </button>
@@ -47,7 +47,7 @@ export default function ForgotPage() {
                     Remember your password?{" "}
                     <a
                         href="/"
-                        className="text-blue-600 font-semibold hover:underline"
+                        className="color-primary font-semibold hover:underline"
                     >
                         Back to Login
                     </a>

@@ -23,9 +23,9 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen bg-grid-pattern flex items-center justify-center px-4">
-            <div className="w-full max-w-lg bg-white shadow-lg rounded-xl p-6">
+            <div className="w-full z-10 max-w-lg bg-white shadow-lg rounded-xl p-6">
 
-                <h1 className="text-3xl font-bold text-center text-blue-800 mb-10 font-sans">Login</h1>
+                <h1 className="text-4xl font-bold text-center color-primary mb-10 font-sans">Login</h1>
 
                 {/* Email */}
                 <label className=" mb-2 block font-medium text-black">Email</label>
@@ -62,21 +62,21 @@ export default function LoginPage() {
                             I agree to the Terms & Conditions
                         </label>
                     </div>
-                    <Link to="/forgot" className="text-blue-600 font-semibold hover:underline ml-auto" >Forgot Password</Link>
+                    <Link to="/forgot" className="color-primary font-semibold hover:underline ml-auto" >Forgot Password</Link>
                 </div>
 
 
                 {/* Login Button */}
                 <button
                     onClick={handleLogin}
-                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                    className="w-full bg-color-primary text-white py-2 rounded  transition">
                     Login Now
                 </button>
 
                 {/* Register Link */}
                 <p className="text-center text-gray-600 mt-4">
                     Not registered?{" "}
-                    <a href="/register" className="text-blue-600 font-semibold hover:underline">
+                    <a href="/register" className="color-primary font-semibold hover:underline">
                         Create an account
                     </a>
                 </p>

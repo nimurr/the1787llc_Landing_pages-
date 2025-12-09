@@ -55,7 +55,7 @@ export default function VerifyOtp() {
         <div className="min-h-screen flex items-center justify-center bg-grid-pattern px-4">
             <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 text-center">
 
-                <h1 className="text-2xl font-bold mb-6 text-blue-700">Verify OTP</h1>
+                <h1 className="text-2xl font-bold mb-6 color-primary">Verify OTP</h1>
                 <p className="text-gray-600 mb-4">Enter the 6-digit code sent to your email</p>
 
                 {/* OTP Input Boxes */}
