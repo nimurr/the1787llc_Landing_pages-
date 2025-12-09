@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface Props {
   onEnterApp: () => void;
@@ -75,36 +75,39 @@ const LandingPage: React.FC<Props> = () => {
 
       {/* Navbar */}
       <nav className="relative z-50 flex justify-between items-center px-6 md:px-8 py-6 max-w-7xl mx-auto">
-        <div
-          className="flex items-center gap-3 cursor-pointer group"
-          onClick={handleLogoClick}
-        >
-          <svg viewBox="0 0 100 100" className="h-10 w-10 group-hover:rotate-90 transition-transform duration-700" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="landingLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#10b981" />
-                <stop offset="100%" stopColor="#3b82f6" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z"
-              stroke="url(#landingLogoGradient)"
-              strokeWidth="3"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M35 35 V65 M35 45 H55 C62 45 65 35 55 35 H35 M45 45 L65 65"
-              stroke="white"
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="80" cy="80" r="4" fill="#10b981" className="animate-pulse" />
-          </svg>
-          <span className="text-2xl font-bold text-white font-serif tracking-tight">RevolV</span>
-        </div>
+        <Link to="/">
+          <div
+            className="flex items-center gap-3 cursor-pointer group"
+            onClick={handleLogoClick}
+          >
+            <svg viewBox="0 0 100 100" className="h-10 w-10 group-hover:rotate-90 transition-transform duration-700" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="landingLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#10b981" />
+                  <stop offset="100%" stopColor="#3b82f6" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z"
+                stroke="url(#landingLogoGradient)"
+                strokeWidth="3"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M35 35 V65 M35 45 H55 C62 45 65 35 55 35 H35 M45 45 L65 65"
+                stroke="white"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <circle cx="80" cy="80" r="4" fill="#10b981" className="animate-pulse" />
+            </svg>
+            <span className="text-2xl font-bold text-white font-serif tracking-tight">RevolV</span>
+          </div>
+        </Link>
+
         {
           user ? (
             <div className="flex items-center gap-5">
