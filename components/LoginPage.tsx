@@ -5,15 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'; // eye icons
 
 export default function LoginPage() {
-    const [login] = useLoginMutation();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [agree, setAgree] = useState(false);
     const [showPassword, setShowPassword] = useState(false); // toggle state
 
+    const [login] = useLoginMutation();
     const navigate = useNavigate();
-
     const handleLogin = async (e) => {
         e.preventDefault();
         if (!email || !password) {

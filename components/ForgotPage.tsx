@@ -1,24 +1,41 @@
+import { useForgotPasswordMutation } from '@/redux/features/auth/authApi';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function ForgotPage() {
     const [email, setEmail] = useState("");
-    const navigate = useNavigate();
 
-    const handleReset = () => {
+    const [forgotPassword] = useForgotPasswordMutation();
+    const navigate = useNavigate();
+    const handleReset = async (e) => {
+        e.preventDefault();
         if (!email) {
-            alert("Please enter your email.");
+            toast.error("Please fill in all fields.");
             return;
         }
-        navigate("/verify-otp?email=" + email);
-
-        // Your password reset logic here
-        alert("A reset link has been sent to your email!");
+        const data = { email };
+        try {
+            const res = await forgotPassword(data);
+            console.log(res);
+            if (res?.data?.code === 200) {
+                toast.success(res?.data?.message);
+                localStorage.setItem("token", res?.data?.data?.attributes?.tokens?.access?.token);
+                localStorage.setItem("user", JSON.stringify(res?.data?.data?.attributes?.user));
+                navigate("/verify-otp?email=" + email);
+                // window.location.href = "/";
+            }
+            else {
+                toast.error(res?.error?.data?.message || "Something went wrong.");
+            }
+        } catch (error) {
+            toast.error(error?.message || "Something went wrong.");
+        }
     };
 
     return (
         <div className="min-h-screen bg-grid-pattern flex items-center justify-center  px-4">
-            <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6">
+            <form action="" onSubmit={handleReset} className="w-full max-w-md bg-white shadow-lg rounded-xl p-6">
 
                 <h1 className="text-2xl font-bold text-center mb-6 color-primary">
                     Forgot Password
@@ -45,15 +62,15 @@ export default function ForgotPage() {
                 {/* Back to Login */}
                 <p className="text-center mt-4 text-gray-600">
                     Remember your password?{" "}
-                    <a
-                        href="/"
+                    <Link
+                        to="/login"
                         className="color-primary font-semibold hover:underline"
                     >
                         Back to Login
-                    </a>
+                    </Link>
                 </p>
 
-            </div>
+            </form>
         </div>
     );
 }
