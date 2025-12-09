@@ -37,7 +37,7 @@ export default function ForgotPage() {
                 {/* Send Reset Button */}
                 <button
                     onClick={handleReset}
-                    className="w-full bg-color-primary text-white py-2 rounded hover:bg-blue-700 transition"
+                    className="w-full bg-color-primary text-white py-2 rounded  transition"
                 >
                     Send Reset Link
                 </button>

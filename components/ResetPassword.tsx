@@ -23,7 +23,7 @@ export default function ResetPassword() {
         <div className="min-h-screen flex items-center justify-center bg-grid-pattern px-4">
             <div className="w-full max-w-md bg-white shadow-lg text-gray-600 rounded-xl p-6">
 
-                <h1 className="text-2xl font-bold text-center mb-6 text-blue-700">
+                <h1 className="text-2xl font-bold text-center mb-6 color-primary">
                     Reset Password
                 </h1>
 
@@ -54,7 +54,7 @@ export default function ResetPassword() {
                 {/* Reset Button */}
                 <button
                     onClick={handleReset}
-                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                    className="w-full bg-color-primary text-white py-2 rounded transition"
                 >
                     Reset Password
                 </button>

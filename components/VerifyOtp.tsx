@@ -77,14 +77,14 @@ export default function VerifyOtp() {
                 {/* Verify Button */}
                 <button
                     onClick={handleVerify}
-                    className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+                    className="w-full bg-color-primary text-white py-2 rounded transition"
                 >
                     Verify OTP
                 </button>
 
                 <p className="text-gray-600 mt-4">
                     Didn't get the code?{" "}
-                    <button className="text-blue-600 hover:underline">Resend</button>
+                    <button className="color-primary hover:underline">Resend</button>
                 </p>
 
             </div>
