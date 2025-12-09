@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -56,6 +57,7 @@ const LandingPage: React.FC<Props> = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    toast.success('Logged out successfully.');
     setUser(null);
   };
 
@@ -64,6 +66,10 @@ const LandingPage: React.FC<Props> = () => {
   }
 
   const onEnterApp = () => {
+    if (!user) {
+      toast.error('Please login first.');
+      return;
+    }
     navigate('/dashboard');
   }
 
