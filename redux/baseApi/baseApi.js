@@ -4,7 +4,7 @@ export const baseApi = createApi({
   reducerPath: "pokemonApi",
   baseQuery: fetchBaseQuery({
     // baseUrl: "https://api.budbox.fun/api/v1",
-    baseUrl: "https://newsheakh6737.sobhoy.com/api/v1",
+    baseUrl: "http://10.10.11.74:5656/api/v1",
     prepareHeaders: (headers, { getState }) => {
       // Retrieve the token from your store or local storage
       const token = localStorage.getItem("token");

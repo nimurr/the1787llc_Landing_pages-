@@ -1,5 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Dashboard from './components/Dashboard';
@@ -12,7 +12,15 @@ import ResetPassword from './components/ResetPassword';
 
 const App: React.FC = () => {
   const [hasAccess, setHasAccess] = useState(false);
-  const paymentAccess = false; // simulate payment
+  const [paymentAccess, setPaymentAccess] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setHasAccess(true);
+      setPaymentAccess(true);
+    }
+  }, []);
 
   const handleEnterApp = () => {
     if (!paymentAccess) {
@@ -32,7 +40,8 @@ const App: React.FC = () => {
           {/* SHOW LOGIN IF PAYMENT ACCESS IS FALSE */}
           {!paymentAccess ? (
             <>
-              <Route path="/" element={<LoginPage />} />
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/forgot" element={<ForgotPage />} />
               <Route path="/verify-otp" element={<VerifyOtp />} />
