@@ -54,7 +54,7 @@ export default function ForgotPage() {
                     onClick={handleReset}
                     className="w-full bg-color-primary text-white py-2 rounded  transition"
                 >
-                    Send Reset Link
+                    Send OTP
                 </button>
 
                 {/* Back to Login */}
