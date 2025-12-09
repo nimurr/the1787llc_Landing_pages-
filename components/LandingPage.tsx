@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { CiLock } from 'react-icons/ci';
 import { Link, useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -125,8 +126,8 @@ const LandingPage: React.FC<Props> = () => {
               </button>
             </div>
           ) : (
-            <button onClick={goLoginPage} className="hidden md:block text-sm font-bold text-slate-300 hover:text-white transition-colors">
-              Member Login
+            <button onClick={goLoginPage} className="hidden  bg-color-primary  px-4 py-2 rounded md:flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-white transition-colors">
+              Member Login <CiLock className="text-xl font-semibold" />
             </button>
           )
         }
