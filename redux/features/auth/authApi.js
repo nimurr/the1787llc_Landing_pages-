@@ -32,14 +32,14 @@ const authApi = baseApi.injectEndpoints({
     }),
     verifyEmail: builder.mutation({
       query: (data) => ({
-        url: "/verify-forgot-password-otp",
+        url: "/auth/verify-email",
         method: "POST",
         body: data,
       }),
     }),
     resetPassword: builder.mutation({
       query: (data) => ({
-        url: "/change-admin-password",
+        url: "/auth/reset-password",
         method: "POST",
         body: data,
       }),

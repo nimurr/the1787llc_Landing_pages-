@@ -1,4 +1,6 @@
+import { useVerifyEmailMutation } from "@/redux/features/auth/authApi";
 import React, { useRef, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function VerifyOtp() {
@@ -38,16 +40,47 @@ export default function VerifyOtp() {
             // Focus last field
             inputRefs.current[newOtp.length - 1].focus();
         }
+
+
+
     };
 
-    const handleVerify = () => {
+    const [verifyEmail] = useVerifyEmailMutation();
+    const mode = new URLSearchParams(window.location.search).get("mode");
+
+    const handleVerify = async () => {
         const code = otp.join("");
         if (code.length < 6) {
             alert("Please enter the 6-digit OTP.");
             return;
         }
-        alert("OTP Verified: " + code);
-        navigate("/reset?email=" + new URLSearchParams(window.location.search).get("email"));
+        console.log("OTP Verified: " + code);
+        // navigate("/reset?email=" + new URLSearchParams(window.location.search).get("email"));
+        const data = {
+            code,
+            email: new URLSearchParams(window.location.search).get("email"),
+        }
+
+        try {
+            const res = await verifyEmail(data);
+            console.log(res);
+            if (res?.data?.code === 200) {
+                toast.success(res?.data?.message);
+                if (mode === "register") {
+                    navigate("/login");
+                }
+                else {
+                    navigate("/reset?email=" + new URLSearchParams(window.location.search).get("email"));
+                }
+            }
+            else {
+                toast.error(res?.error?.data?.message || "Something went wrong.");
+            }
+
+        } catch (error) {
+            console.log(error);
+            toast.error(error?.message || "Something went wrong.");
+        }
 
     };
 

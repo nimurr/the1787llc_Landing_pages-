@@ -20,8 +20,6 @@ export default function ForgotPage() {
             console.log(res);
             if (res?.data?.code === 200) {
                 toast.success(res?.data?.message);
-                localStorage.setItem("token", res?.data?.data?.attributes?.tokens?.access?.token);
-                localStorage.setItem("user", JSON.stringify(res?.data?.data?.attributes?.user));
                 navigate("/verify-otp?email=" + email);
                 // window.location.href = "/";
             }
