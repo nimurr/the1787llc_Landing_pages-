@@ -2,7 +2,7 @@ import { useRegisterMutation } from '@/redux/features/auth/authApi';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function RegisterPage() {
     // State for all required registration fields
@@ -139,9 +139,9 @@ export default function RegisterPage() {
                 {/* Login Link */}
                 <p className="text-center text-gray-600 mt-4">
                     Already have an account?{" "}
-                    <a href="/" className="color-primary font-semibold hover:underline">
+                    <Link to="/login" className="color-primary font-semibold hover:underline">
                         Please Login
-                    </a>
+                    </Link>
                 </p>
             </form>
         </div>
