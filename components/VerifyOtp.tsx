@@ -94,10 +94,10 @@ export default function VerifyOtp() {
     // VERIFY OTP
     // -----------------------
     const handleVerify = async () => {
-        if (timeLeft <= 0) {
-            toast.error("OTP expired. Please resend.");
-            return;
-        }
+        // if (timeLeft <= 0) {
+        //     toast.error("OTP expired. Please resend.");
+        //     return;
+        // }
 
         const code = otp.join("");
         if (code.length < 6) {
@@ -198,9 +198,9 @@ export default function VerifyOtp() {
                 </button>
 
                 {/* Countdown timer */}
-                <p className="my-4 color-primary font-semibold">
+                {/* <p className="my-4 color-primary font-semibold">
                     Time Left: {formatTime(timeLeft)}
-                </p>
+                </p> */}
 
                 <p className="text-gray-600 flex justify-center items-center gap-3 mt-4">
                     Didn't get the code?{" "}
