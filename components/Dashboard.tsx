@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
       const data = await analyzeCreditReport(files);
 
 
-      console.log(data , files)
+      console.log(data, files)
 
       clearInterval(progressInterval);
       setUploadProgress(100);
