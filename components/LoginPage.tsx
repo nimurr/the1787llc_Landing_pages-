@@ -35,7 +35,7 @@ export default function LoginPage() {
                 window.location.href = "/";
             }
             else {
-                toast.error(res?.error?.data?.message);
+                toast.error(res?.error?.data?.message || "Something went wrong.");
             }
         } catch (error) {
             toast.error(error?.message || "Something went wrong.");
