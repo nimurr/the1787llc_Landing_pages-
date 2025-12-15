@@ -125,9 +125,9 @@ const LandingPage: React.FC<Props> = () => {
 
         {
           user ? (
-            <div className="flex items-center gap-5">
-              <button onClick={shwoProfile} className="hidden bg-color-primary  px-4 py-2 rounded md:block text-sm font-bold text-gray-100 hover:text-white transition-colors">
-                History & Profile
+            <div className="flex items-center gap-3">
+              <button onClick={shwoProfile} className=" bg-color-primary  px-4 py-2 rounded  text-sm font-bold text-gray-100 hover:text-white transition-colors">
+                History
               </button>
               <button onClick={handleLogout} className=" bg-red-700 px-4 py-2 rounded md:block text-sm font-bold text-white hover:text-white transition-colors">
                 Logout
