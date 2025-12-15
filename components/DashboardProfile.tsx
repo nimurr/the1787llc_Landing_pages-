@@ -45,12 +45,12 @@ export default function DashboardProfile() {
 
       {!selectedData ? (
         // ======= SHOW ALL ITEMS LIST =======
-        <div className="bg-zinc-700 text-white p-6 rounded-lg flex flex-col gap-4">
+        <div className="bg-[#1c1e2d] shadow-[0_0_10px_#34d399] text-white p-6 rounded-lg flex flex-col gap-4">
           {historyFullData?.data?.map((item: any, index: number) => (
             <div
               key={index}
               onClick={() => setSelectedData(item?.analysisData[0])}
-              className="bg-zinc-900 flex cursor-pointer hover:bg-zinc-800 items-start justify-between gap-10 rounded-xl p-5 shadow"
+              className="bg-zinc-900 flex hover:shadow-[0_0_10px_#34d399] cursor-pointer items-start justify-between gap-10 rounded-xl p-5 shadow"
             >
               <div>
                 <p className="font-bold ">
