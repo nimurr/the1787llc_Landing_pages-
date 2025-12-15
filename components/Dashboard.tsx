@@ -10,6 +10,7 @@ import FTCGuide from './FTCGuide';
 import BusinessBlueprint from './BusinessBlueprint';
 import { analyzeCreditReport } from '../services/geminiService';
 import { Link } from 'react-router-dom';
+import { useCreateHistoryMutation } from '@/redux/features/history/history';
 
 const RevolveLogo = ({ className = "h-8 w-8" }: { className?: string }) => (
   <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +52,9 @@ const Dashboard: React.FC = () => {
   const [analysisData, setAnalysisData] = useState<AnalysisResponseSchema | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const [createAnalysisData] = useCreateHistoryMutation();
+
+
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = e.target.files;
     if (!fileList || fileList.length === 0) return;
@@ -85,9 +89,12 @@ const Dashboard: React.FC = () => {
       const files = await Promise.all(filePromises);
       const data = await analyzeCreditReport(files);
 
-      console.log(data, files)
+      // console.log(data, files)
+      // localStorage.setItem('analysisData', JSON.stringify(data));
 
-      localStorage.setItem('analysisData', JSON.stringify(data));
+      const res = await createAnalysisData(data)
+      console.log(res)
+
 
       clearInterval(progressInterval);
       setUploadProgress(100);
