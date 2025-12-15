@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     return {
       // server: {
       //   port: 3000,
-      //   host: ['0.0.0.0' , 'localhost' ],
+      //   host: "https://nimur3000.sobhoy.com",
       // },
       plugins: [react()],
       define: {

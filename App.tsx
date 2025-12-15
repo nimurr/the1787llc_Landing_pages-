@@ -9,6 +9,7 @@ import RegisterPage from './components/RegisterPage';
 import ForgotPage from './components/ForgotPage';
 import VerifyOtp from './components/VerifyOtp';
 import ResetPassword from './components/ResetPassword';
+import DashboardProfile from './components/DashboardProfile';
 
 const App: React.FC = () => {
   const [hasAccess, setHasAccess] = useState(false);
@@ -54,6 +55,8 @@ const App: React.FC = () => {
 
               <Route path="/" element={<LandingPage onEnterApp={handleEnterApp} />} />
 
+              <Route path="/dashboard-profile" element={<DashboardProfile />} />
+              
               {hasAccess ? (
                 <Route path="/dashboard" element={<Dashboard />} />
               ) : (

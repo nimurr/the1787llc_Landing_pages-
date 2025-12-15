@@ -66,6 +66,14 @@ const LandingPage: React.FC<Props> = () => {
     window.location.href = "/login";
   }
 
+  const shwoProfile = () => {
+    if (!user) {
+      toast.error('Please login first.');
+      return;
+    }
+    navigate('/dashboard-profile');
+  }
+
   const onEnterApp = () => {
     if (!user) {
       toast.error('Please login first.');
@@ -118,8 +126,8 @@ const LandingPage: React.FC<Props> = () => {
         {
           user ? (
             <div className="flex items-center gap-5">
-              <button onClick={onEnterApp} className="hidden bg-color-primary  px-4 py-2 rounded md:block text-sm font-bold text-gray-100 hover:text-white transition-colors">
-                Dashboard
+              <button onClick={shwoProfile} className="hidden bg-color-primary  px-4 py-2 rounded md:block text-sm font-bold text-gray-100 hover:text-white transition-colors">
+                History & Profile
               </button>
               <button onClick={handleLogout} className=" bg-red-700 px-4 py-2 rounded md:block text-sm font-bold text-white hover:text-white transition-colors">
                 Logout
