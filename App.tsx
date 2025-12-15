@@ -10,6 +10,9 @@ import ForgotPage from './components/ForgotPage';
 import VerifyOtp from './components/VerifyOtp';
 import ResetPassword from './components/ResetPassword';
 import DashboardProfile from './components/DashboardProfile';
+import SuccessPage from './components/SuccessPage';
+import CanceledPage from './components/CanceledPage';
+import FailedPage from './components/FailedPage';
 
 const App: React.FC = () => {
   const [hasAccess, setHasAccess] = useState(false);
@@ -52,11 +55,9 @@ const App: React.FC = () => {
           ) : (
             <>
               {/* Normal routes when payment is TRUE */}
-
               <Route path="/" element={<LandingPage onEnterApp={handleEnterApp} />} />
-
               <Route path="/dashboard-profile" element={<DashboardProfile />} />
-              
+
               {hasAccess ? (
                 <Route path="/dashboard" element={<Dashboard />} />
               ) : (
@@ -65,6 +66,10 @@ const App: React.FC = () => {
               <Route path="*" element={<Navigate to="/" />} />
             </>
           )}
+
+          <Route path="/success" element={<SuccessPage />} />
+          <Route path="/cancel" element={<CanceledPage />} />
+          <Route path="/failed" element={<FailedPage />} />
 
         </Routes>
       </Router>

@@ -1,4 +1,5 @@
 
+import { usePaySubscriptionMutation } from '@/redux/features/subscription/subscription';
 import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { CiLock } from 'react-icons/ci';
@@ -80,6 +81,32 @@ const LandingPage: React.FC<Props> = () => {
       return;
     }
     navigate('/dashboard');
+  }
+
+  const [paymentSub] = usePaySubscriptionMutation();
+
+  const buySubscription = async () => {
+    try {
+      const data = {
+        productName: "RevolV",
+        price: 299,
+        type: "year"
+      }
+      const res = await paymentSub(data);
+      console.log(res)
+
+      if (res?.data?.message === "Success") {
+        toast.success(res?.data?.message);
+        navigate(res?.data?.url);
+      }
+      else {
+        toast.error(res?.error?.data?.error || "Something went wrong.");
+      }
+
+    } catch (error) {
+      toast.error(error?.error?.data?.message || "Something went wrong.");
+    }
+
   }
 
   return (
@@ -364,7 +391,7 @@ const LandingPage: React.FC<Props> = () => {
                 </ul>
 
                 <button
-                  onClick={onEnterApp}
+                  onClick={buySubscription}
                   className="w-full py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transform hover:scale-[1.02]"
                 >
                   Secure Coach Package

@@ -35,7 +35,15 @@ const subScriptionApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ["Subscription"],
         }),
+        paySubscription: builder.mutation({
+            query: (formData) => ({
+                url: `/checkout`, // ✅ Fixed API URL
+                method: "POST",
+                body: formData,
+            }),
+            invalidatesTags: ["Subscription"],
+        }),
     }),
 });
 
-export const { useGetSubScriptionQuery, useCreateSubScriptionMutation, useUpdateScriptionMutation, useDeleteSubScriptionMutation } = subScriptionApi;
+export const { useGetSubScriptionQuery, useCreateSubScriptionMutation, useUpdateScriptionMutation, useDeleteSubScriptionMutation , usePaySubscriptionMutation} = subScriptionApi;
