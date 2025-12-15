@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppView, AnalysisResponseSchema } from '../types';
 import AnalysisReport from './AnalysisReport';
 import DisputeGenerator from './DisputeGenerator';
@@ -85,8 +85,9 @@ const Dashboard: React.FC = () => {
       const files = await Promise.all(filePromises);
       const data = await analyzeCreditReport(files);
 
-
       console.log(data, files)
+
+      localStorage.setItem('analysisData', JSON.stringify(data));
 
       clearInterval(progressInterval);
       setUploadProgress(100);
