@@ -100,11 +100,11 @@ const LandingPage: React.FC<Props> = () => {
         navigate(res?.data?.url);
       }
       else {
-        toast.error(res?.error?.data?.error || "Something went wrong.");
+        toast.error(res?.error?.data?.error || 'Please login first.');
       }
 
     } catch (error) {
-      toast.error(error?.error?.data?.message || "Something went wrong.");
+      toast.error(error?.error?.data?.message || "Please login first.");
     }
 
   }

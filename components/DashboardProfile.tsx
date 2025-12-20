@@ -63,6 +63,11 @@ export default function DashboardProfile() {
               </p>
             </div>
           ))}
+          {
+            historyFullData?.data?.length === 0 && (
+              <p className="text-red-400 text-xl text-center">No analysis data available.</p>
+            )
+          }
         </div>
       ) : (
         // ======= SHOW SELECTED DETAIL =======
